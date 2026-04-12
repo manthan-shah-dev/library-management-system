@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Student</title>
     <style>
         /* Container styling */
         form {
@@ -74,58 +74,53 @@
 
 <body>
 <%- include('partials/navbar') %>
-    <!-- <div>     -->
-    <form method="POST" action="/student-enter">
+    <form method="POST" action="/student/<%= student.id %>?_method=PATCH">
 
-        <label>Student Registration</label>
+        <label>Edit Student Details</label>
 
-        <input type="text" id="fname" name="first_name" placeholder="enter the student name" required>
-        <input type="text" id="fname" name="last_name" placeholder="enter the student name" required>
+        <input type="text" name="first_name" placeholder="First Name" value="<%= student.first_name %>" required>
+        <input type="text" name="last_name" placeholder="Last Name" value="<%= student.last_name %>" required>
 
-        <input type="email" id="Smail" name="Smail" placeholder="student email" required>
+        <input type="email" name="email" placeholder="Email" value="<%= student.email %>" required>
         <div class="field">
             <label>Date of Birth</label>
-            <input type="date" name="DOB" required>
+            <input type="date" name="dob" value="<%= student.dob %>" required>
         </div>
 
-        <input type="tel" id="Snumber" name="Snumber" placeholder="student number" required>
+        <input type="tel" name="student_phone" placeholder="Student Phone" value="<%= student.student_phone %>" required>
 
-        <input type="tel" id="Pnumber" name="Pnumber" placeholder="parent number" required>
+        <input type="tel" name="parent_phone" placeholder="Parent Phone" value="<%= student.parent_phone %>" required>
 
-        <input type="text" id="Saddress" name="Saddress" placeholder="address of student" required>
+        <input type="text" name="address" placeholder="Address" value="<%= student.address %>" required>
 
         <div class="field">
             <label>Branch</label>
             <select name="branch" required style="width: 100%; padding: 12px 15px; border: 1.5px solid #e1e1e1; border-radius: 6px; font-size: 14px; box-sizing: border-box;">
                 <option value="">Select Branch</option>
-                <option value="Information Technology">Information Technology</option>
-                <option value="Mechanical">Mechanical</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Bachelor of Computer Applications">Bachelor of Computer Applications</option>
+                <option value="Information Technology" <%= student.branch === 'Information Technology' ? 'selected' : '' %>>Information Technology</option>
+                <option value="Mechanical" <%= student.branch === 'Mechanical' ? 'selected' : '' %>>Mechanical</option>
+                <option value="Computer Science" <%= student.branch === 'Computer Science' ? 'selected' : '' %>>Computer Science</option>
+                <option value="Bachelor of Computer Applications" <%= student.branch === 'Bachelor of Computer Applications' ? 'selected' : '' %>>Bachelor of Computer Applications</option>
             </select>
         </div>
 
         <div style="display:flex; gap:20px;">
 
             <label>
-                <input type="radio" name="year" value="first" required>
-                first
+                <input type="radio" name="year" value="first" <%= student.year === 'first' ? 'checked' : '' %> required>
+                First
             </label>
 
             <label>
-                <input type="radio" name="year" value="DSE">
+                <input type="radio" name="year" value="DSE" <%= student.year === 'DSE' ? 'checked' : '' %>>
                 DSE
             </label>
 
-
-
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Update Student</button>
 
     </form>
-    <!-- </div> -->
 </body>
-<script src="studententer.js"></script>
 
 </html>

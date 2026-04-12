@@ -80,23 +80,13 @@
 
         <form method="POST" action="/issue/<%= issue.id %>?_method=PATCH">
 
-            <label>Status</label>
-            <select name="status" required>
+            <input type="hidden" name="status" value="returned">
+            <div class="info" style="margin-bottom: 18px;">
+                Status: <strong>Returned</strong><br>
+                Return date will be set to today's date automatically.
+            </div>
 
-                <option value="issued" <%= issue.status === "issued" ? "selected" : "" %>>Issued</option>
-
-                <option value="returned" <%= issue.status === "returned" ? "selected" : "" %>>Returned</option>
-
-                <option value="pending" <%= issue.status === "pending" ? "selected" : "" %>>Pending</option>
-
-                <option value="lost" <%= issue.status === "lost" ? "selected" : "" %>>Lost</option>
-
-            </select>
-
-            <label>Date of Return</label>
-            <input type="date" name="return_date" value="<%= issue.return_date ? issue.return_date : '' %>">
-
-            <button type="submit">Update</button>
+            <button type="submit">Return Book</button>
 
         </form>
 

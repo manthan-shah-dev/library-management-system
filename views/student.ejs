@@ -65,6 +65,7 @@ tr:hover {
 </head>
 
 <body>
+<%- include('partials/navbar') %>
 
 <h2>📋 Student Details</h2>
 
@@ -85,6 +86,7 @@ tr:hover {
     <th>Parent Phone</th>
     <th>Address</th>
     <th>Reg Date</th>
+    <th>Actions</th>
 </tr>
 
 <% users.forEach(user => { %>
@@ -102,6 +104,9 @@ tr:hover {
     <td><%= user.parent_phone %></td>
     <td><%= user.address %></td>
     <td><%= user.registration_date %></td>
+    <td>
+        <a href="/student/<%= user.id %>/edit" style="background: #3b82f6; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; font-size: 12px;">Edit</a>
+    </td>
 </tr>
 <% }) %>
 

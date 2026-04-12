@@ -1,0 +1,52 @@
+<nav class="site-nav">
+    <div class="nav-brand">Library</div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/studententer">Student Registration</a></li>
+        <li><a href="/bookreg">Book Entry</a></li>
+        <li><a href="/student/data">Student Details</a></li>
+        <li><a href="/book/data">Book Details</a></li>
+        <li><a href="/book/issues">Issue Details</a></li>
+        <li><a href="/book/returns">Returned Books</a></li>
+    </ul>
+</nav>
+<style>
+.site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #1e293b;
+    color: white;
+    padding: 16px 24px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+.nav-brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li {
+    margin: 0;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a:focus {
+    background: rgba(14, 165, 233, 0.14);
+    color: #bae6fd;
+}
+</style>

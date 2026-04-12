@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Issue</title>
 
-    <!-- CSS from public folder -->
-    <link rel="stylesheet" href="/bookissue.css">
-
     <style>
     :root {
         --primary: #f59e0b;
@@ -99,6 +96,8 @@
 
 <body>
 
+<%- include('partials/navbar') %>
+
 <div class="issue-container">
 
     <div class="issue-header">
@@ -126,10 +125,8 @@
                 <input type="date" name="issue_date" required>
             </div>
 
-            <div class="field">
-                <label>Due Date</label>
-                <input type="date" name="due_date" required>
-            </div>
+            <!-- Due Date is auto-calculated as Issue Date + 7 days -->
+            <input type="hidden" name="due_date">
 
          <div class="field full-span">
     <label>Status</label>
@@ -164,6 +161,21 @@
     </form>
 
 </div>
+
+<script>
+    // Auto-set due date to 7 days from issue date
+    const issueDateInput = document.querySelector('input[name="issue_date"]');
+    const dueDateInput = document.querySelector('input[name="due_date"]');
+
+    issueDateInput.addEventListener('change', function() {
+        if (this.value) {
+            const issueDate = new Date(this.value);
+            const dueDate = new Date(issueDate);
+            dueDate.setDate(dueDate.getDate() + 7);
+            dueDateInput.value = dueDate.toISOString().split('T')[0];
+        }
+    });
+</script>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Student Details</title>
+<title>Returned Books</title>
 
 <style>
 body {
@@ -20,7 +20,7 @@ h2 {
     color: #1e293b;
 }
 
-/* Table Styling */
+/* Table */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -30,7 +30,6 @@ table {
     overflow: hidden;
 }
 
-/* Header */
 th {
     background: #1e293b;
     color: white;
@@ -38,7 +37,6 @@ th {
     font-size: 14px;
 }
 
-/* Rows */
 td {
     padding: 10px;
     text-align: center;
@@ -46,17 +44,17 @@ td {
     border-bottom: 1px solid #e2e8f0;
 }
 
-/* Zebra striping */
+/* Zebra */
 tr:nth-child(even) {
     background: #f8fafc;
 }
 
-/* Hover effect */
+/* Hover */
 tr:hover {
     background: #e0f2fe;
 }
 
-/* Responsive scroll */
+/* Responsive */
 .table-container {
     overflow-x: auto;
 }
@@ -67,33 +65,34 @@ tr:hover {
 <body>
 <%- include('partials/navbar') %>
 
-<h2>📚 Book Details</h2>
+<h2>📚 Returned Books</h2>
 
 <div class="table-container">
 <table>
 
 <tr>
     <th>ID</th>
-    <th>Title</th>
+    <th>Student Name</th>
+    <th>Book Title</th>
     <th>Author</th>
-    <th>Isbn</th>
-    <th>genre</th>
-    <th>total-copies</th>
-    <th>available-copies</th>
-    <th>registration_date</th>
-  
+    <th>ISBN</th>
+    <th>Genre</th>
+    <th>Issue Date</th>
+    <th>Due Date</th>
+    <th>Return Date</th>
 </tr>
 
-<% users.forEach(user => { %>
+<% returns.forEach(ret => { %>
 <tr>
-    <td><%= user.id %></td>
-    <td><%= user.title%></td>
-    <td><%= user.author %></td>
-    <td><%= user.isbn %></td>
-    <td><%= user.genre %></td>
-    <td><%= user.total_copies%></td>
-    <td><%= user.available_copies%></td>
-    <td><%= user.created_at %></td>
+    <td><%= ret.id %></td>
+    <td><%= ret.studentName %></td>
+    <td><%= ret.bookTitle %></td>
+    <td><%= ret.author %></td>
+    <td><%= ret.isbn %></td>
+    <td><%= ret.genre %></td>
+    <td><%= ret.issue_date %></td>
+    <td><%= ret.due_date %></td>
+    <td><%= ret.return_date %></td>
 </tr>
 <% }) %>
 
