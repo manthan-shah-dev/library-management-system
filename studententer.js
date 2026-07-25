@@ -50,6 +50,15 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS // Replace with your app password
     }
 });
+//conecction check
+
+connection.connect((err) => {
+    if (err) {
+        console.error("DB Connection Error:", err);
+    } else {
+        console.log("Database Connected!");
+    }
+});
 
 
 //main page
