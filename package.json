@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "start": "node app.js"
-  },
+    "start": "node studententer.js"
+  }
+,
   "dependencies": {
     "body-parser": "^2.2.2",
     "dotenv": "^17.4.2",
