@@ -1,4 +1,4 @@
-
+require("dotenv").config();
 const mysql = require('mysql2');
 const express = require('express');
 const app = express();
@@ -46,8 +46,8 @@ const connection = mysql.createConnection({
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'act12566@gmail.com', // Replace with your email
-        pass: 'sgseufsjuxkltrqj' // Replace with your app password
+    user: process.env.EMAIL_USER, // Replace with your email
+    pass: process.env.EMAIL_PASS // Replace with your app password
     }
 });
 
