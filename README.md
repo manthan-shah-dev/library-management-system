@@ -3,7 +3,6 @@
 A full-stack **Library Management System** developed using **Node.js, Express.js, EJS, and MySQL** to manage student records, book issuing, and returns.
 
 ---
-
 ## 🚀 Key Highlights
 
 - Built backend using **Express.js**
